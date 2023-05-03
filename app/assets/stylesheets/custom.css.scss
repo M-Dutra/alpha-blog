@@ -1,13 +1,19 @@
 @import 'bootstrap/dist/css/bootstrap';
 
-// .navbar {
-//   background-color: #706f6c1f !important;
-//   }
+.navbar {
+  background-color: black !important;
+}
 
-  // .navbar-brand {
-  // font-size: 3rem;
-  // }
+.nav-link {
+  color: white !important;
+}
 
-  // h1 {
-  // color: red;
-  // }
+#logo {
+  float:inline-start;
+  font-size: 1.7 em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
