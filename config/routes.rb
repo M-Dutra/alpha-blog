@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   #Rest-ful routes to Rails resources
   #HTTP verbs - Get, Post, Put, Patch, Delete
   resources :articles
+  get 'signup', to: 'users#new'
+  resources :users, except: [:new]
 end
