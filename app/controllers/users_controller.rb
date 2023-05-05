@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "Profile created successfully, welcome #{@user.username} :)"
-      redirect_to articles_path # lets alterate later to show page user
+      redirect_to user_path(@user)
     else
       render 'new'
     end
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "Your acount information was successfully updated :)"
-      redirect_to articles_path # lets alterate later to show page user
+      redirect_to user_path(@user)
     else
       render 'edit'
     end
