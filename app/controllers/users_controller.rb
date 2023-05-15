@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      # keep the user logged in
       session[:user_id] = @user.id
       flash[:notice] = "Profile created successfully, welcome #{@user.username} :)"
       redirect_to user_path(@user)

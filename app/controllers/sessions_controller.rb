@@ -4,7 +4,9 @@ class SessionsController < ApplicationController
   end
 
   def create
+    # search for the user
     user = User.find_by(email: params[:session][:email].downcase)
+    # verify if the user and password are equivalent
     if user && user.authenticate(params[:session][:password])
       # keep the user logged in
       session[:user_id] = user.id

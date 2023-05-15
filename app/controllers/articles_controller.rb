@@ -1,6 +1,11 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+
+  # 1 - Limit the actions...anyone can see the index and show article,
+  # but if you are not logged in, you can't delete,create or edit
   before_action :require_user, except: [:index, :show]
+
+  # 2 - To perform edit or delete we need to make sure that the current user is the one that create this article
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
 
@@ -19,7 +24,6 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    byebug
     @article = Article.new(article_params)
     @article.user = current_user
     if @article.save
